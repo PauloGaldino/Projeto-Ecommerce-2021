@@ -1,0 +1,1 @@
+Esta camada fica responsável pelos domínios e suas interfaces.

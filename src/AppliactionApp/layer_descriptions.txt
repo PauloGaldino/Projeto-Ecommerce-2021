@@ -1,0 +1,1 @@
+﻿Esta camada fica responsável em mapear o acesso com os repositórios em suas camadas inferiores.

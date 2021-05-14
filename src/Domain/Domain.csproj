@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interface\Generics\" />
+    <Folder Include="Interface\Interfaces\" />
+    <Folder Include="Interface\Services\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,1 @@
+﻿Esta camada fica resposnsável pelos contextoz e suas configurações.
