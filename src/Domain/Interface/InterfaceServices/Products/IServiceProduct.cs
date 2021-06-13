@@ -5,6 +5,8 @@ namespace Domain.Interface.InterfaceServices.Products
 {
     public interface IServiceProduct
     {
+        //============Métodos custumizados=======
+
         Task AddProduct(Product product);
 
         Task UpdateProduct(Product product);

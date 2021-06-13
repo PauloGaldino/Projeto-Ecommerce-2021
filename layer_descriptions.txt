@@ -1,1 +1,9 @@
+======================================================================
 Esta camada fica responsável pelos domínios e suas interfaces.
+
+======================================================================
+Observação:
+Todos os métodos e propriedades desta classe serão escrito em Inglês.
+Por ser um projeto simples todas as classes do Dominio serão classes 
+anemicas.
+

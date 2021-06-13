@@ -17,7 +17,8 @@ namespace Entity.Notifications
         }
 
         //===============Propriedades==================
-        [NotMapped]
+
+        [NotMapped] //Esta coluna não existe no banco de dados para ser herdada
         public string PropertyName { get; set; }
 
         [NotMapped]
@@ -28,7 +29,7 @@ namespace Entity.Notifications
 
         //=============Nétodos============================
 
-        // métod para validar a string
+        // método para validar a string
             public bool ValidateStringProperties( string value, string propertyMane)
             {
                 if(string.IsNullOrWhiteSpace(value) || string.IsNullOrWhiteSpace(propertyMane))
@@ -44,7 +45,7 @@ namespace Entity.Notifications
                 return true;
             }
 
-        // métod para validar a propriedade inteiro
+        // método para validar a propriedade inteiro
             public bool ValidateIntProperties(int value, string propertyMane)
             {
                 if ( value < 1 || string.IsNullOrWhiteSpace(propertyMane))

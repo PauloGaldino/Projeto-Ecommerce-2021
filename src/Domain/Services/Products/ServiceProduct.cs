@@ -3,8 +3,14 @@ using Domain.Interface.InterfaceServices.Products;
 using Entity.Entities.ProductEntity;
 using System.Threading.Tasks;
 
-namespace Domain.Services
+namespace Domain.Services.Products
 {
+    /// <summary>
+    /// Esta classe fica responsável
+    /// por manter as regras de negócio
+    /// e as validaçõesda entidade 
+    /// de produto
+    /// </summary>
     public class ServiceProduct : IServiceProduct
     {
         //Injeção de dependencia
@@ -17,7 +23,7 @@ namespace Domain.Services
         }
 
 
-        //M=etodos 
+        //Métodos 
         public async Task AddProduct(Product product)
         {
             var validateName = product.ValidateStringProperties(product.Name, "Name");

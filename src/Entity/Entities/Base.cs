@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations;
 namespace Entity.Entities
 {
     /// <summary>
-    /// Classe repons´´avel por 
+    /// Classe reponsável por 
     /// propiedades genéircas
+    /// para serem herdads por outras classes do 
+    /// Dominio
     /// </summary>
 
     public class Base : Notifiers

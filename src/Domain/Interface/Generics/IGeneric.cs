@@ -11,6 +11,8 @@ namespace Domain.Interface.Generics
         Task UpDate(T Object);
         Task Delete(T Object);
 
+        //==========Métodos para pesquisa=====
+
         Task<T> getEntityById(int Id);
         Task<List<T>> List();
     }
