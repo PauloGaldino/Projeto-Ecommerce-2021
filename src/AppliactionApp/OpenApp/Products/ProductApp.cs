@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AppliactionApp.OpenApp
+namespace AppliactionApp.OpenApp.Products
 {
     public class ProductApp : IPorductApp
     {
