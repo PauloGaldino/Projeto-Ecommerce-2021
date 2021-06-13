@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 
 namespace AppliactionApp.Interface.Products
 {
-    public interface IPorductApp : IGenericApp<Product>
+    public interface IProductApp : IGenericApp<Product>
     {
+        //========Métodos custumizados========
 
         Task AddProduct(Product product);
 

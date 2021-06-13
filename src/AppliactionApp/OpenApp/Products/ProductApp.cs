@@ -2,13 +2,12 @@
 using Domain.Interface.Interfaces.Products;
 using Domain.Interface.InterfaceServices.Products;
 using Entity.Entities.ProductEntity;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AppliactionApp.OpenApp.Products
 {
-    public class ProductApp : IPorductApp
+    public class ProductApp : IProductApp
     {
         //Injeção de dependencia
         IProduct _IProduct;
@@ -22,8 +21,9 @@ namespace AppliactionApp.OpenApp.Products
             _IServiceProduct = IServiceProduct;
         }
 
-        //==========Métodos==============
-        //Métodos CRUd
+        //======================Métodos=========================
+
+        //=======Métodos CRUD===========================
         public async Task Add(Product Object)
         {
             await _IProduct.Add(Object);
@@ -39,9 +39,10 @@ namespace AppliactionApp.OpenApp.Products
             await _IProduct.Delete(Object);
         }
 
+        //Método para pesquisa==========================
         public async Task<Product> GetEntityById(int Id)
         {
-           return await _IProduct.getEntityById(Id);
+            return await _IProduct.getEntityById(Id);
         }
 
         public async Task<List<Product>> List()
@@ -50,7 +51,7 @@ namespace AppliactionApp.OpenApp.Products
         }
 
 
-        //Métodos custumizados
+        //========Métodos custumizados==================
         public async Task AddProduct(Product product)
         {
             await _IServiceProduct.AddProduct(product);
