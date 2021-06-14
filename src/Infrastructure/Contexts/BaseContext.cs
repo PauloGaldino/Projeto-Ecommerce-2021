@@ -1,9 +1,11 @@
-﻿using Entity.Entities.ProductEntity;
+﻿using Entity.Entities.Persons.Users;
+using Entity.Entities.ProductEntity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Contexts
 {
-    public class BaseContext : DbContext
+    public class BaseContext : IdentityDbContext<ApplicationUser>
     {
         public BaseContext(DbContextOptions<BaseContext> options) : base(options)
         {
@@ -21,7 +23,7 @@ namespace Infrastructure.Contexts
         }
         private string GetStringConnectionConfig()
         {
-            string strCon = "Data SOurce=(localdb)\\MSSQLLocalDB;Initial Catalog=ControleEstoque;Integrated Security=True";
+            string strCon = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Ecommerce2021;Integrated Security=True";
             return strCon;
         }
     }
