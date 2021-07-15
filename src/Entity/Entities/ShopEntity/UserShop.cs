@@ -27,7 +27,7 @@ namespace Entity.Entities.ShopEntity
         [Display(Name = "USUÁRIO")]
         [ForeignKey("ApplicationUser")]
         [Column(Order = 1)]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 
