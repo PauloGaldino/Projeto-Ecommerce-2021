@@ -23,7 +23,9 @@ namespace Infrastructure.Contexts
         }
         private string GetStringConnectionConfig()
         {
-            string strCon = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Ecommerce2021;Integrated Security=True";
+            //Data Source=(localdb)\\MSSQLLocalDB
+            //Data Source=DESKTOP-PAULO\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+            string strCon = "Data Source=DESKTOP-PAULO\\SQLEXPRESS;Initial Catalog=Ecommerce2021;Integrated Security=True";
             return strCon;
         }
     }

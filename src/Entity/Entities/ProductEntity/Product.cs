@@ -33,10 +33,10 @@ namespace Entity.Entities.ProductEntity
         [DisplayName("QUANTIDADE_ESTOQUE")]
         public int StockQuantity { get; set; }
 
-        [Display(Name ="USUÁRIO")]
+        [Display(Name = "USUÁRIO")]
         [ForeignKey("ApplicationUser")]
         [Column(Order = 1)]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 

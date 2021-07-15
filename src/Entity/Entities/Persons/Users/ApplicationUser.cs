@@ -8,19 +8,30 @@ namespace Entity.Entities.Persons.Users
 {
     public class ApplicationUser : IdentityUser
     {
-        [Column("CPF")]
-        [MaxLength(50)]
-        [Display(Name = "CPF")]
-        public string CPF { get; set; }
-
-        [Column("IDADE")]
-        [Display(Name = "Idade")]
-        public int BirthDate { get; set; }
+        //============================ DADOS PESSOAIS ====================================
 
         [Column("NOME")]
         [MaxLength(255)]
         [Display(Name = "NOME")]
         public string Name { get; set; }
+
+        [Column("IDADE")]
+        [Display(Name = "Idade")]
+        public int BirthDate { get; set; }
+
+        //============================ DOCUMENTOS ========================================
+
+        [Column("CPF")]
+        [MaxLength(50)]
+        [Display(Name = "CPF")]
+        public string CPF { get; set; }
+
+        [Column("RG")]
+        [MaxLength(50)]
+        [Display(Name = "RG")]
+        public string RG { get; set; }
+
+        //============================ ENDEREÇO ==========================================
 
         [Column("CEP")]
         [MaxLength(15)]
@@ -34,8 +45,19 @@ namespace Entity.Entities.Persons.Users
 
         [Column("COMPLEMENTOENDERECO")]
         [MaxLength(450)]
-        [DisplayName("COMOLEMENTO ENDEREÇO")]
+        [DisplayName("COMPLEMENTO ENDEREÇO")]
         public string complementAdress { get; set; }
+
+        [Column("CIDADE")]
+        [MaxLength(450)]
+        [DisplayName("CIDADE")]
+        public string City { get; set; }
+
+        [Column("ESTADO")]
+        [DisplayName("ESTADO")]
+        public bool State { get; set; }
+
+        //============================ CONTATOS ==========================================
 
         [Column("CELULAR")]
         [MaxLength(20)]
@@ -47,9 +69,7 @@ namespace Entity.Entities.Persons.Users
         [DisplayName("TELEFONE_FIXO")]
         public string Telephone { get; set; }
 
-        [Column("ESTADO")]
-        [DisplayName("ESTADO")]
-        public bool State { get; set; }
+        //============================ TIPOS DE AUTORIZAÇÃO ==============================
 
         [Column("TIPO")]
         [DisplayName("TIPO_USUÁRIO")]

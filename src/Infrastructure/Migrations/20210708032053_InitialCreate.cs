@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.Migrations
 {
@@ -26,6 +26,18 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    NOME = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    IDADE = table.Column<int>(type: "int", nullable: false),
+                    CPF = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    RG = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CEP = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
+                    ENDERECO = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    COMPLEMENTOENDERECO = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    CIDADE = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    ESTADO = table.Column<bool>(type: "bit", nullable: false),
+                    CELULAR = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    TELEFONE = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    TIPO = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -44,21 +56,6 @@ namespace Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Produto",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Value = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Estado = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Produto", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -167,6 +164,32 @@ namespace Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Produto",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    DESCRICAO = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
+                    Value = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    QUANTIDADEESTOQUE = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Estado = table.Column<bool>(type: "bit", nullable: false),
+                    DATACADASTRO = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DATAALTERACAO = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Produto", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Produto_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -205,6 +228,11 @@ namespace Infrastructure.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Produto_UserId",
+                table: "Produto",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
